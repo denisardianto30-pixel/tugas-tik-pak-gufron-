@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTIK - Portal Belajar Teknologi Informasi dan Komunikasi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        tech: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            cyan: '#06b6d4',
+                            amber: '#f59e0b',
+                            emerald: '#10b981'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-tech-600 selection:text-white">
+
+    <!-- 1. HEADER & NAVIGASI RESPONSIF -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <a href="#beranda" class="flex items-center space-x-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tech-600 to-accent-cyan flex items-center justify-center text-white shadow-md shadow-tech-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-microchip text-lg"></i>
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900">Edu<span class="text-tech-600">TIK</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="#beranda" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-tech-600 hover:bg-tech-50 transition-colors">Beranda</a>
+                    <a href="#pengertian" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-tech-600 hover:bg-tech-50 transition-colors">Pengertian TIK</a>
+                    <a href="#komponen" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-tech-600 hover:bg-tech-50 transition-colors">Komponen Utama</a>
+                    <a href="#sejarah" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-tech-600 hover:bg-tech-50 transition-colors">Sejarah Singkat</a>
+                    <a href="#manfaat" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-tech-600 hover:bg-tech-50 transition-colors">Manfaat</a>
+                    <a href="#kuis" class="ml-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-tech-600 hover:bg-tech-700 shadow-sm shadow-tech-600/30 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad"></i> Kuis Interaktif
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex lg:hidden">
+                    <button id="mobile-menu-btn" type="button" class="p-2.5 rounded-xl text-slate-600 hover:text-tech-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-tech-500" aria-label="Buka Menu">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-5 space-y-1 shadow-xl">
+            <a href="#beranda" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-tech-600 hover:bg-tech-50">Beranda</a>
+            <a href="#pengertian" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-tech-600 hover:bg-tech-50">Pengertian TIK</a>
+            <a href="#komponen" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-tech-600 hover:bg-tech-50">Komponen Utama</a>
+            <a href="#sejarah" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-tech-600 hover:bg-tech-50">Sejarah Singkat</a>
+            <a href="#manfaat" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-tech-600 hover:bg-tech-50">Manfaat</a>
+            <div class="pt-2">
+                <a href="#kuis" class="mobile-nav-link block w-full text-center px-4 py-3 rounded-xl text-base font-semibold text-white bg-tech-600 hover:bg-tech-700 shadow-md">
+                    <i class="fa-solid fa-gamepad mr-2"></i>Mulai Kuis Interaktif
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="beranda" class="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-gradient-to-br from-slate-900 via-tech-900 to-slate-900 text-white">
+        <!-- Decorative Background Glow -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-tech-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-cyan/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-tech-800/80 border border-tech-500/30 text-tech-200 text-xs sm:text-sm font-medium mb-6">
+                        <span class="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span>
+                        Literasi Digital Era Modern
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                        Jelajahi Dunia <span class="text-transparent bg-clip-text bg-gradient-to-r from-tech-400 to-accent-cyan">Teknologi Informasi</span> &amp; Komunikasi
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Pahami bagaimana perangkat keras, perangkat lunak, jaringan internet, dan kecerdasan manusia bersinergi membentuk peradaban digital yang terhubung tanpa batas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#pengertian" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-tech-500 hover:bg-tech-400 text-white font-semibold shadow-lg shadow-tech-500/30 transition-all flex items-center justify-center gap-2">
+                            <span>Mulai Belajar</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#kuis" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white font-semibold backdrop-blur-sm transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-bolt text-accent-amber"></i>
+                            <span>Uji Pemahamanmu</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Modern Tech Illustration (SVG Vector) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="rounded-3xl bg-gradient-to-tr from-tech-800/60 to-slate-800/60 border border-white/10 p-6 sm:p-8 backdrop-blur-md shadow-2xl">
+                            <!-- Custom SVG Digital Ecosystem Illustration -->
+                            <svg viewBox="0 0 400 340" class="w-full h-auto drop-shadow-lg" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Background Grid Circles -->
+                                <circle cx="200" cy="170" r="130" fill="none" stroke="#3b82f6" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="6 6"></circle>
+                                <circle cx="200" cy="170" r="90" fill="none" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="1.5"></circle>
+                                
+                                <!-- Connecting Lines -->
+                                <line x1="200" y1="170" x2="90" y2="85" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"></line>
+                                <line x1="200" y1="170" x2="310" y2="85" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round"></line>
+                                <line x1="200" y1="170" x2="90" y2="255" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"></line>
+                                <line x1="200" y1="170" x2="310" y2="255" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"></line>
+
+                                <!-- Central Server / Cloud Core -->
+                                <rect x="150" y="130" width="100" height="80" rx="18" fill="#1e40af" stroke="#60a5fa" stroke-width="3"></rect>
+                                <rect x="165" y="148" width="70" height="12" rx="4" fill="#3b82f6"></rect>
+                                <circle cx="174" cy="154" r="2.5" fill="#10b981"></circle>
+                                <rect x="165" y="168" width="70" height="12" rx="4" fill="#3b82f6"></rect>
+                                <circle cx="174" cy="174" r="2.5" fill="#06b6d4"></circle>
+                                <rect x="165" y="188" width="45" height="8" rx="4" fill="#93c5fd"></rect>
+
+                                <!-- Node 1: Hardware (Top Left) -->
+                                <rect x="55" y="55" width="70" height="60" rx="16" fill="#0f172a" stroke="#60a5fa" stroke-width="2.5"></rect>
+                                <rect x="72" y="70" width="36" height="24" rx="3" fill="#3b82f6"></rect>
+                                <line x1="66" y1="98" x2="114" y2="98" stroke="#93c5fd" stroke-width="3" stroke-linecap="round"></line>
+
+                                <!-- Node 2: Global Network (Top Right) -->
+                                <circle cx="310" cy="85" r="32" fill="#0f172a" stroke="#06b6d4" stroke-width="2.5"></circle>
+                                <circle cx="310" cy="85" r="16" fill="none" stroke="#06b6d4" stroke-width="2"></circle>
+                                <ellipse cx="310" cy="85" rx="8" ry="16" fill="none" stroke="#06b6d4" stroke-width="1.5"></ellipse>
+                                <line x1="294" y1="85" x2="326" y2="85" stroke="#06b6d4" stroke-width="1.5"></line>
+
+                                <!-- Node 3: Software Code (Bottom Left) -->
+                                <rect x="55" y="225" width="70" height="60" rx="16" fill="#0f172a" stroke="#10b981" stroke-width="2.5"></rect>
+                                <polyline points="82,247 72,255 82,263" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                <polyline points="98,247 108,255 98,263" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                                <line x1="93" y1="244" x2="87" y2="266" stroke="#6ee7b7" stroke-width="2" stroke-linecap="round"></line>
+
+                                <!-- Node 4: Brainware / User (Bottom Right) -->
+                                <circle cx="310" cy="255" r="32" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5"></circle>
+                                <circle cx="310" cy="247" r="8" fill="#f59e0b"></circle>
+                                <path d="M296 269 C296 259, 324 259, 324 269" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"></path>
+                            </svg>
+
+                            <!-- Quick Stats Bar -->
+                            <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-white/10 text-center">
+                                <div>
+                                    <p class="text-lg sm:text-xl font-bold text-tech-400">4 Pilar</p>
+                                    <p class="text-xs text-slate-400">Komponen Inti</p>
+                                </div>
+                                <div>
+                                    <p class="text-lg sm:text-xl font-bold text-accent-cyan">5 Era</p>
+                                    <p class="text-xs text-slate-400">Evolusi Sejarah</p>
+                                </div>
+                                <div>
+                                    <p class="text-lg sm:text-xl font-bold text-accent-emerald">Interaktif</p>
+                                    <p class="text-xs text-slate-400">Kuis Evaluasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PENGERTIAN & PENTINGNYA TIK -->
+    <section id="pengertian" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-tech-600 font-semibold text-sm uppercase tracking-wider">Konsep Dasar</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-4">Apa Itu Teknologi Informasi dan Komunikasi?</h2>
+                <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                    <strong>TIK (ICT - Information and Communication Technology)</strong> adalah payung besar terminologi yang mencakup seluruh peralatan teknis untuk memproses dan menyampaikan informasi.
+                </p>
+            </div>
+
+            <!-- Two Pillars Comparison -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+                <!-- Teknologi Informasi -->
+                <div class="rounded-2xl bg-tech-50/70 border border-tech-100 p-8 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-tech-600 text-white flex items-center justify-center text-2xl mb-6 shadow-md shadow-tech-600/20">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Teknologi Informasi (TI)</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Berfokus pada segala hal yang berkaitan dengan <strong>proses, penggunaan sebagai alat bantu, manipulasi, dan pengelolaan informasi</strong>. Contohnya meliputi komputer, penyimpanan awan (cloud), serta perangkat lunak pengolah data.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-tech-600"></i> Pengolahan &amp; penyimpanan data digital</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-tech-600"></i> Otomatisasi sistem &amp; kecerdasan buatan</li>
+                    </ul>
+                </div>
+
+                <!-- Teknologi Komunikasi -->
+                <div class="rounded-2xl bg-cyan-50/70 border border-cyan-100 p-8 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-accent-cyan text-white flex items-center justify-center text-2xl mb-6 shadow-md shadow-cyan-500/20">
+                        <i class="fa-solid fa-satellite-dish"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Teknologi Komunikasi (TK)</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Segala sesuatu yang berkaitan dengan penggunaan alat bantu untuk <strong>memproses dan mentransfer data dari satu perangkat ke perangkat lainnya</strong> secara cepat dan akurat melintasi jarak geografis.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-accent-cyan"></i> Jaringan internet, Wi-Fi, &amp; satelit</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-accent-cyan"></i> Pertukaran pesan &amp; telekonferensi real-time</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Mengapa TIK Penting di Era Modern -->
+            <div class="rounded-3xl bg-slate-900 text-white p-8 sm:p-10 shadow-xl">
+                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+                    <div class="max-w-xl">
+                        <h3 class="text-2xl font-bold mb-2 flex items-center gap-2.5">
+                            <i class="fa-solid fa-star text-accent-amber"></i> Mengapa TIK Sangat Penting Saat Ini?
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base">
+                            Di era Revolusi Industri 4.0 dan Society 5.0, penguasaan TIK bukan lagi sekadar pelengkap, melainkan fondasi utama produktivitas global.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full lg:w-auto">
+                        <div class="bg-white/10 rounded-2xl p-4 border border-white/10">
+                            <p class="font-bold text-tech-300 text-lg mb-1">Efisiensi Tinggi</p>
+                            <p class="text-xs text-slate-300">Memangkas waktu kerja dan biaya operasional secara drastis.</p>
+                        </div>
+                        <div class="bg-white/10 rounded-2xl p-4 border border-white/10">
+                            <p class="font-bold text-accent-cyan text-lg mb-1">Akses Tanpa Batas</p>
+                            <p class="text-xs text-slate-300">Informasi dan ilmu pengetahuan tersedia 24/7 dari mana saja.</p>
+                        </div>
+                        <div class="bg-white/10 rounded-2xl p-4 border border-white/10">
+                            <p class="font-bold text-accent-emerald text-lg mb-1">Inovasi Global</p>
+                            <p class="text-xs text-slate-300">Mendorong lahirnya ekonomi digital dan kolaborasi lintas negara.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. KOMPONEN UTAMA TIK (KARTU INTERAKTIF) -->
+    <section id="komponen" class="py-20 bg-slate-50 border-t border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-tech-600 font-semibold text-sm uppercase tracking-wider">Ekosistem Sistem</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-4">4 Komponen Utama TIK</h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Klik pada masing-masing kartu komponen di bawah ini untuk melihat penjelasan mendalam, fungsi, dan contoh nyatanya.
+                </p>
+            </div>
+
+            <!-- Interactive Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="component-cards">
+                <!-- Card 1: Hardware -->
+                <button type="button" onclick="selectComponent('hardware')" id="card-hardware" class="comp-card text-left rounded-2xl bg-white p-6 border-2 border-tech-600 shadow-lg transition-all duration-200 hover:-translate-y-1 focus:outline-none">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-tech-100 text-tech-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-tech-600 text-white status-badge">Aktif</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Perangkat Keras</h3>
+                    <p class="text-xs font-semibold text-tech-600 uppercase tracking-wide mb-2">Hardware</p>
+                    <p class="text-sm text-slate-500">Komponen fisik elektronik yang dapat dilihat dan disentuh secara langsung.</p>
+                </button>
+
+                <!-- Card 2: Software -->
+                <button type="button" onclick="selectComponent('software')" id="card-software" class="comp-card text-left rounded-2xl bg-white p-6 border-2 border-slate-200 hover:border-tech-400 shadow-sm transition-all duration-200 hover:-translate-y-1 focus:outline-none">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-100 text-accent-cyan flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 status-badge">Klik Detail</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Perangkat Lunak</h3>
+                    <p class="text-xs font-semibold text-accent-cyan uppercase tracking-wide mb-2">Software</p>
+                    <p class="text-sm text-slate-500">Sekumpulan instruksi digital atau program yang menjalankan perangkat keras.</p>
+                </button>
+
+                <!-- Card 3: Network -->
+                <button type="button" onclick="selectComponent('network')" id="card-network" class="comp-card text-left rounded-2xl bg-white p-6 border-2 border-slate-200 hover:border-tech-400 shadow-sm transition-all duration-200 hover:-translate-y-1 focus:outline-none">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-accent-emerald flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 status-badge">Klik Detail</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Jaringan &amp; Internet</h3>
+                    <p class="text-xs font-semibold text-accent-emerald uppercase tracking-wide mb-2">Network &amp; Data</p>
+                    <p class="text-sm text-slate-500">Infrastruktur penghubung antarperangkat untuk bertukar paket data.</p>
+                </button>
+
+                <!-- Card 4: Brainware -->
+                <button type="button" onclick="selectComponent('brainware')" id="card-brainware" class="comp-card text-left rounded-2xl bg-white p-6 border-2 border-slate-200 hover:border-tech-400 shadow-sm transition-all duration-200 hover:-translate-y-1 focus:outline-none">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-accent-amber flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-user-gear"></i>
+                        </div>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 status-badge">Klik Detail</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Pengguna</h3>
+                    <p class="text-xs font-semibold text-accent-amber uppercase tracking-wide mb-2">Brainware</p>
+                    <p class="text-sm text-slate-500">Manusia yang merancang, mengoperasikan, dan mengelola sistem TIK.</p>
+                </button>
+            </div>
+
+            <!-- Interactive Detail Panel -->
+            <div id="component-detail-panel" class="rounded-3xl bg-white border border-slate-200 p-6 sm:p-10 shadow-md transition-all duration-300">
+                <!-- Content injected dynamically by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. TIMELINE SEJARAH PERKEMBANGAN TIK -->
+    <section id="sejarah" class="py-20 bg-white border-t border-slate-200/70">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-tech-600 font-semibold text-sm uppercase tracking-wider">Jejak Evolusi</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-4">Sejarah Singkat Perkembangan TIK</h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Perjalanan panjang manusia dalam menciptakan cara berkomunikasi dan mengolah informasi dari masa prasejarah hingga kecerdasan buatan.
+                </p>
+            </div>
+
+            <!-- Vertical Timeline -->
+            <div class="relative border-l-4 border-tech-200 ml-4 sm:ml-8 space-y-10">
+                <!-- Item 1 -->
+                <div class="relative pl-8 sm:pl-10 group">
+                    <div class="absolute -left-3.5 top-1 w-6 h-6 rounded-full bg-tech-600 border-4 border-white shadow group-hover:scale-125 transition-transform"></div>
+                    <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-6 hover:border-tech-300 transition-colors">
+                        <span class="inline-block px-3 py-1 rounded-lg bg-tech-100 text-tech-700 text-xs font-bold mb-2">Masa Prasejarah – 3000 SM</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Lukisan Gua &amp; Tulisan Piktograf</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Manusia purba merekam informasi melalui lukisan di dinding gua. Bangsa Sumeria kemudian mengembangkan tulisan paku (cuneiform) pada lempung, diikuti hieroglif oleh bangsa Mesir Kuno.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative pl-8 sm:pl-10 group">
+                    <div class="absolute -left-3.5 top-1 w-6 h-6 rounded-full bg-tech-600 border-4 border-white shadow group-hover:scale-125 transition-transform"></div>
+                    <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-6 hover:border-tech-300 transition-colors">
+                        <span class="inline-block px-3 py-1 rounded-lg bg-tech-100 text-tech-700 text-xs font-bold mb-2">Tahun 1450 – Era Mekanik</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Mesin Cetak Gutenberg</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Johannes Gutenberg menemukan mesin cetak bergerak yang memicu revolusi penyebaran buku dan ilmu pengetahuan secara massal ke seluruh penjuru dunia.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative pl-8 sm:pl-10 group">
+                    <div class="absolute -left-3.5 top-1 w-6 h-6 rounded-full bg-accent-cyan border-4 border-white shadow group-hover:scale-125 transition-transform"></div>
+                    <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-6 hover:border-cyan-300 transition-colors">
+                        <span class="inline-block px-3 py-1 rounded-lg bg-cyan-100 text-cyan-800 text-xs font-bold mb-2">Abad ke-19 (1837 – 1876)</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Telegraf, Kode Morse &amp; Telepon</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Samuel Morse memperkenalkan telegraf elektrik yang memungkinkan pengiriman pesan jarak jauh dalam hitungan menit, disusul penemuan telepon oleh Alexander Graham Bell pada tahun 1876.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="relative pl-8 sm:pl-10 group">
+                    <div class="absolute -left-3.5 top-1 w-6 h-6 rounded-full bg-accent-emerald border-4 border-white shadow group-hover:scale-125 transition-transform"></div>
+                    <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-6 hover:border-emerald-300 transition-colors">
+                        <span class="inline-block px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-bold mb-2">1940-an – 1989</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Komputer Elektronik &amp; Lahirnya World Wide Web</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Dimulai dari komputer ENIAC berukuran ruangan besar, berkembang menjadi komputer pribadi (PC), hingga Tim Berners-Lee menciptakan World Wide Web (WWW) yang menghubungkan jaringan internet global.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="relative pl-8 sm:pl-10 group">
+                    <div class="absolute -left-3.5 top-1 w-6 h-6 rounded-full bg-accent-amber border-4 border-white shadow group-hover:scale-125 transition-transform"></div>
+                    <div class="rounded-2xl bg-gradient-to-r from-tech-50 to-cyan-50 border border-tech-200 p-6">
+                        <span class="inline-block px-3 py-1 rounded-lg bg-amber-100 text-amber-800 text-xs font-bold mb-2">Abad ke-21 – Sekarang</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Smartphone, Cloud Computing &amp; Kecerdasan Buatan (AI)</h3>
+                        <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                            Komputasi berada dalam genggaman melalui smartphone, jaringan berkecepatan tinggi 5G, Internet of Things (IoT), serta AI generatif yang membantu manusia mengambil keputusan cerdas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. MANFAAT TIK DI BERBAGAI BIDANG -->
+    <section id="manfaat" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-accent-cyan font-semibold text-sm uppercase tracking-wider">Dampak Nyata</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-4">Manfaat TIK di Berbagai Bidang</h2>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Pilih bidang kehidupan di bawah ini untuk mengeksplorasi bagaimana TIK mentransformasi cara kita belajar, bekerja, dan berinteraksi.
+                </p>
+            </div>
+
+            <!-- Interactive Category Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10" id="benefit-tabs">
+                <button type="button" onclick="selectBenefit('pendidikan')" id="tab-pendidikan" class="benefit-tab px-5 py-3 rounded-xl font-semibold text-sm sm:text-base bg-tech-600 text-white shadow-lg shadow-tech-600/30 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap"></i> Pendidikan
+                </button>
+                <button type="button" onclick="selectBenefit('kesehatan')" id="tab-kesehatan" class="benefit-tab px-5 py-3 rounded-xl font-semibold text-sm sm:text-base bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-heart-pulse"></i> Kesehatan
+                </button>
+                <button type="button" onclick="selectBenefit('bisnis')" id="tab-bisnis" class="benefit-tab px-5 py-3 rounded-xl font-semibold text-sm sm:text-base bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line"></i> Bisnis &amp; Ekonomi
+                </button>
+                <button type="button" onclick="selectBenefit('komunikasi')" id="tab-komunikasi" class="benefit-tab px-5 py-3 rounded-xl font-semibold text-sm sm:text-base bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-comments"></i> Komunikasi Sosial
+                </button>
+            </div>
+
+            <!-- Benefit Content Display -->
+            <div id="benefit-content" class="rounded-3xl bg-slate-800/80 border border-slate-700 p-6 sm:p-10 backdrop-blur-sm">
+                <!-- Content injected dynamically by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. KUIS MINI INTERAKTIF -->
+    <section id="kuis" class="py-20 bg-gradient-to-b from-slate-50 to-tech-50/50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-tech-100 text-tech-700 text-xs font-bold uppercase tracking-wider mb-3">
+                    <i class="fa-solid fa-brain"></i> Tantangan Pengetahuan
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-3">Kuis Mini Interaktif TIK</h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Uji pemahamanmu dengan 5 pertanyaan dasar seputar Teknologi Informasi dan Komunikasi!
+                </p>
+            </div>
+
+            <!-- Quiz Container Card -->
+            <div class="rounded-3xl bg-white border border-slate-200 shadow-xl overflow-hidden">
+                <!-- Quiz Header / Progress -->
+                <div class="bg-slate-900 text-white px-6 py-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm font-semibold text-tech-300" id="quiz-progress-text">Pertanyaan 1 dari 5</span>
+                    </div>
+                    <div class="text-sm font-bold bg-white/10 px-3 py-1 rounded-lg">
+                        Skor: <span id="quiz-live-score" class="text-accent-cyan">0</span>
+                    </div>
+                </div>
+                <!-- Progress Bar -->
+                <div class="w-full bg-slate-200 h-2">
+                    <div id="quiz-progress-bar" class="bg-gradient-to-r from-tech-600 to-accent-cyan h-2 transition-all duration-300" style="width: 20%;"></div>
+                </div>
+
+                <!-- Active Quiz Body -->
+                <div id="quiz-body" class="p-6 sm:p-10">
+                    <h3 id="question-text" class="text-xl sm:text-2xl font-bold text-slate-900 mb-6 leading-snug">
+                        Memuat pertanyaan...
+                    </h3>
+
+                    <!-- Options List -->
+                    <div id="options-container" class="space-y-3 mb-6">
+                        <!-- Options injected via JS -->
+                    </div>
+
+                    <!-- Explanation Box (Hidden until answered) -->
+                    <div id="explanation-box" class="hidden rounded-2xl p-4 sm:p-5 mb-6 border text-sm sm:text-base">
+                        <p class="font-bold mb-1" id="explanation-title"></p>
+                        <p id="explanation-text" class="leading-relaxed"></p>
+                    </div>
+
+                    <!-- Next Button -->
+                    <div class="flex justify-end">
+                        <button type="button" id="next-btn" onclick="nextQuestion()" disabled="" class="px-6 py-3 rounded-xl font-semibold text-white bg-slate-300 cursor-not-allowed transition-all flex items-center gap-2">
+                            <span>Pertanyaan Berikutnya</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Result Screen (Hidden initially) -->
+                <div id="quiz-result" class="hidden p-8 sm:p-12 text-center">
+                    <div id="result-icon-wrapper" class="w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl mb-5 shadow-lg">
+                        <i id="result-icon" class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2" id="result-title">Kuis Selesai!</h3>
+                    <p class="text-slate-600 mb-6" id="result-subtitle">Berikut adalah hasil evaluasi pemahaman TIK kamu:</p>
+                    
+                    <div class="inline-block rounded-2xl bg-slate-50 border border-slate-200 px-8 py-5 mb-8">
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Skor Akhir Kamu</p>
+                        <p class="text-4xl sm:text-5xl font-extrabold text-tech-600"><span id="final-score">0</span><span class="text-2xl text-slate-400">/100</span></p>
+                        <p class="text-sm font-medium text-slate-600 mt-2" id="correct-count-text">Benar 0 dari 5 soal</p>
+                    </div>
+
+                    <div>
+                        <button type="button" onclick="restartQuiz()" class="px-7 py-3.5 rounded-xl bg-tech-600 hover:bg-tech-700 text-white font-semibold shadow-lg shadow-tech-600/30 transition-all inline-flex items-center gap-2">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>Ulangi Kuis</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER INFORMATIF -->
+    <footer class="bg-slate-950 text-slate-400 pt-16 pb-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800/80">
+                <!-- Brand Info -->
+                <div class="lg:col-span-2">
+                    <a href="#beranda" class="flex items-center space-x-2.5 mb-4">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-tech-600 to-accent-cyan flex items-center justify-center text-white">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <span class="text-xl font-extrabold text-white">Edu<span class="text-tech-500">TIK</span></span>
+                    </a>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-md mb-5">
+                        Platform pembelajaran interaktif yang dirancang untuk membantu pelajar, mahasiswa, dan masyarakat umum memahami fondasi Teknologi Informasi dan Komunikasi secara mudah dan menyenangkan.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#beranda" aria-label="Situs Web" class="w-9 h-9 rounded-lg bg-slate-900 hover:bg-tech-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
+                        <a href="#komponen" aria-label="Materi" class="w-9 h-9 rounded-lg bg-slate-900 hover:bg-tech-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-book-open"></i>
+                        </a>
+                        <a href="#kuis" aria-label="Kuis" class="w-9 h-9 rounded-lg bg-slate-900 hover:bg-tech-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-award"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigasi Cepat -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Navigasi Materi</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#beranda" class="hover:text-tech-400 transition-colors">Beranda Utama</a></li>
+                        <li><a href="#pengertian" class="hover:text-tech-400 transition-colors">Pengertian &amp; Pentingnya TIK</a></li>
+                        <li><a href="#komponen" class="hover:text-tech-400 transition-colors">4 Komponen Utama TIK</a></li>
+                        <li><a href="#sejarah" class="hover:text-tech-400 transition-colors">Linimasa Sejarah TIK</a></li>
+                        <li><a href="#manfaat" class="hover:text-tech-400 transition-colors">Manfaat di Berbagai Bidang</a></li>
+                    </ul>
+                </div>
+
+                <!-- Ringkasan Topik -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Topik Literasi Digital</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-tech-500"></i> Arsitektur Hardware &amp; Software</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-tech-500"></i> Jaringan Komputer &amp; Internet</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-tech-500"></i> Peran Strategis Brainware</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-tech-500"></i> Transformasi Digital 4.0</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>© 2026 EduTIK Indonesia. Media Edukasi Teknologi Informasi &amp; Komunikasi.</p>
+                <p>Dirancang responsif untuk pembelajaran modern.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // ==========================================
+        // 1. NAVIGASI MOBILE RESPONSIF
+        // ==========================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Tutup menu mobile otomatis saat tautan diklik
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // ==========================================
+        // 2. DATA & INTERAKSI KOMPONEN UTAMA TIK
+        // ==========================================
+        const componentsData = {
+            hardware: {
+                title: "Perangkat Keras (Hardware)",
+                subtitle: "Fondasi Fisik Sistem Komputasi",
+                icon: "fa-desktop",
+                colorClass: "text-tech-600 bg-tech-100",
+                description: "Hardware adalah semua bagian fisik komputer dan perangkat telekomunikasi yang memiliki wujud nyata. Hardware bertugas menerima input data, memprosesnya secara aritmatika/logika, menyimpan data, serta menampilkan hasil keluaran (output).",
+                categories: [
+                    { name: "Perangkat Input", items: "Keyboard, Mouse, Scanner, Mikrofon, Kamera Web" },
+                    { name: "Perangkat Pemroses", items: "CPU (Processor), GPU, Motherboard, RAM" },
+                    { name: "Perangkat Output", items: "Monitor, Printer, Speaker, Proyektor" },
+                    { name: "Perangkat Penyimpanan", items: "SSD, Hard Disk (HDD), Flash Drive, Kartu Memori" }
+                ]
+            },
+            software: {
+                title: "Perangkat Lunak (Software)",
+                subtitle: "Otak Digital & Instruksi Terprogram",
+                icon: "fa-code",
+                colorClass: "text-accent-cyan bg-cyan-100",
+                description: "Software adalah sekumpulan data elektronik yang disimpan dan diatur oleh komputer berupa program atau instruksi yang memerintahkan hardware untuk melakukan tugas tertentu. Tanpa software, perangkat keras hanyalah benda mati.",
+                categories: [
+                    { name: "Sistem Operasi (OS)", items: "Windows, macOS, Linux, Android, iOS" },
+                    { name: "Aplikasi Produktivitas", items: "Microsoft Office, Google Workspace, Notion" },
+                    { name: "Peramban Web (Browser)", items: "Google Chrome, Mozilla Firefox, Safari, Edge" },
+                    { name: "Perangkat Lunak Utilitas", items: "Antivirus, Software Kompresi File, Backup Tools" }
+                ]
+            },
+            network: {
+                title: "Jaringan & Internet (Network)",
+                subtitle: "Jembatan Konektivitas Global",
+                icon: "fa-wifi",
+                colorClass: "text-accent-emerald bg-emerald-100",
+                description: "Jaringan komputer adalah sistem yang menghubungkan dua atau lebih perangkat komputasi untuk berbagi sumber daya dan bertukar informasi. Internet merupakan jaringan global terbesar yang menghubungkan jutaan jaringan di seluruh dunia.",
+                categories: [
+                    { name: "Perangkat Jaringan", items: "Router, Switch, Modem, Access Point, Kabel Fiber Optik" },
+                    { name: "Jenis Jaringan", items: "LAN (Lokal), MAN (Kota), WAN (Luas), Internet" },
+                    { name: "Protokol Komunikasi", items: "TCP/IP, HTTP/HTTPS, DNS, Wi-Fi, Bluetooth, 5G" },
+                    { name: "Layanan Cloud", items: "Cloud Storage, Cloud Hosting, SaaS (Software as a Service)" }
+                ]
+            },
+            brainware: {
+                title: "Pengguna (Brainware)",
+                subtitle: "Pengendali & Inovator Teknologi",
+                icon: "fa-user-gear",
+                colorClass: "text-accent-amber bg-amber-100",
+                description: "Brainware adalah manusia yang terlibat langsung dalam merancang, membangun, mengoperasikan, serta memelihara sistem Teknologi Informasi dan Komunikasi. Kecakapan dan etika brainware menentukan keberhasilan pemanfaatan TIK.",
+                categories: [
+                    { name: "Pengembang (Developer)", items: "Programmer, Web Developer, Mobile App Engineer" },
+                    { name: "Analis & Arsitek", items: "System Analyst, Data Scientist, UI/UX Designer" },
+                    { name: "Administrator Sistem", items: "Network Engineer, Database Admin, Cyber Security Specialist" },
+                    { name: "Pengguna Akhir (End-User)", items: "Pelajar, Guru, Pekerja Kantoran, Masyarakat Umum" }
+                ]
+            }
+        };
+
+        function selectComponent(key) {
+            const data = componentsData[key];
+            if (!data) return;
+
+            // Update card styling
+            document.querySelectorAll('.comp-card').forEach(card => {
+                card.classList.remove('border-tech-600', 'shadow-lg');
+                card.classList.add('border-slate-200', 'shadow-sm');
+                const badge = card.querySelector('.status-badge');
+                badge.textContent = 'Klik Detail';
+                badge.classList.remove('bg-tech-600', 'text-white', 'font-bold');
+                badge.classList.add('bg-slate-100', 'text-slate-600', 'font-semibold');
+            });
+
+            const activeCard = document.getElementById(`card-${key}`);
+            activeCard.classList.remove('border-slate-200', 'shadow-sm');
+            activeCard.classList.add('border-tech-600', 'shadow-lg');
+            const activeBadge = activeCard.querySelector('.status-badge');
+            activeBadge.textContent = 'Aktif';
+            activeBadge.classList.remove('bg-slate-100', 'text-slate-600', 'font-semibold');
+            activeBadge.classList.add('bg-tech-600', 'text-white', 'font-bold');
+
+            // Render detail panel
+            const panel = document.getElementById('component-detail-panel');
+            panel.innerHTML = `
+                <div class="flex flex-col lg:flex-row gap-8 items-start">
+                    <div class="lg:w-5/12">
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl ${data.colorClass} text-2xl mb-4">
+                            <i class="fa-solid ${data.icon}"></i>
+                        </div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-tech-600 mb-1">${data.subtitle}</p>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">${data.title}</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm sm:text-base">${data.description}</p>
+                    </div>
+                    <div class="lg:w-7/12 w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        ${data.categories.map(cat => `
+                            <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-5">
+                                <h4 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-tech-600"></span>
+                                    ${cat.name}
+                                </h4>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${cat.items}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // 3. DATA & INTERAKSI MANFAAT TIK
+        // ==========================================
+        const benefitsData = {
+            pendidikan: {
+                title: "Transformasi Pendidikan Digital",
+                icon: "fa-graduation-cap",
+                accent: "text-tech-400",
+                summary: "TIK mendemokratisasi akses pendidikan sehingga proses belajar mengajar tidak lagi terbatas oleh ruang kelas fisik maupun jarak geografis.",
+                points: [
+                    { title: "E-Learning & LMS", desc: "Platform pembelajaran daring (seperti Google Classroom & Moodle) memudahkan distribusi materi dan tugas." },
+                    { title: "Perpustakaan Digital", desc: "Akses jutaan e-book, jurnal ilmiah internasional, dan video edukasi interaktif secara instan." },
+                    { title: "Simulasi & Lab Virtual", desc: "Memungkinkan siswa melakukan eksperimen sains atau pemrograman secara aman menggunakan perangkat lunak." }
+                ]
+            },
+            kesehatan: {
+                title: "Inovasi Layanan Kesehatan (E-Health)",
+                icon: "fa-heart-pulse",
+                accent: "text-rose-400",
+                summary: "Penerapan TIK di dunia medis meningkatkan akurasi diagnosis, mempercepat penanganan pasien, dan mempermudah konsultasi jarak jauh.",
+                points: [
+                    { title: "Telemedicine", desc: "Konsultasi dokter secara daring melalui panggilan video dan pengiriman resep digital langsung ke apotek." },
+                    { title: "Rekam Medis Elektronik", desc: "Riwayat kesehatan pasien tersimpan terintegrasi dan aman sehingga mempercepat tindakan medis darurat." },
+                    { title: "Diagnostik Berbasis AI", desc: "Pemanfaatan teknologi pencitraan medis canggih (MRI, CT-Scan) dan analisis data kesehatan presisi." }
+                ]
+            },
+            bisnis: {
+                title: "Akselerasi Bisnis & Ekonomi Digital",
+                icon: "fa-chart-line",
+                accent: "text-accent-emerald",
+                summary: "TIK membuka peluang wirausaha baru dan membantu perusahaan beroperasi secara global dengan efisiensi tinggi.",
+                points: [
+                    { title: "E-Commerce & UMKM Digital", desc: "Penjual dapat menjangkau pembeli di seluruh penjuru negeri hingga mancanegara melalui lokapasar (marketplace)." },
+                    { title: "Pembayaran Non-Tunai (Fintech)", desc: "Transaksi keuangan instan menggunakan dompet digital, QRIS, dan mobile banking yang aman." },
+                    { title: "Pemasaran Digital & Analitik", desc: "Strategi promosi tepat sasaran berbasis data perilaku konsumen di media sosial dan mesin pencari." }
+                ]
+            },
+            komunikasi: {
+                title: "Konektivitas & Komunikasi Tanpa Batas",
+                icon: "fa-comments",
+                accent: "text-accent-cyan",
+                summary: "Jarak antarbenua kini terasa dekat berkat berbagai aplikasi komunikasi instan yang mendukung teks, suara, hingga video berkualitas tinggi.",
+                points: [
+                    { title: "Pesan Instan & Video Call", desc: "Komunikasi real-time dengan keluarga maupun rekan kerja di mana pun berada dengan biaya sangat terjangkau." },
+                    { title: "Kolaborasi Kerja Jarak Jauh", desc: "Rapat virtual dan penyuntingan dokumen bersama secara bersamaan mendukung budaya kerja fleksibel." },
+                    { title: "Penyebaran Informasi Cepat", desc: "Berita aktual dan informasi darurat dapat tersampaikan ke masyarakat luas dalam hitungan detik." }
+                ]
+            }
+        };
+
+        function selectBenefit(key) {
+            const data = benefitsData[key];
+            if (!data) return;
+
+            // Update tab button styles
+            document.querySelectorAll('.benefit-tab').forEach(tab => {
+                tab.classList.remove('bg-tech-600', 'text-white', 'shadow-lg', 'shadow-tech-600/30');
+                tab.classList.add('bg-slate-800', 'text-slate-300', 'hover:bg-slate-700');
+            });
+
+            const activeTab = document.getElementById(`tab-${key}`);
+            activeTab.classList.remove('bg-slate-800', 'text-slate-300', 'hover:bg-slate-700');
+            activeTab.classList.add('bg-tech-600', 'text-white', 'shadow-lg', 'shadow-tech-600/30');
+
+            // Render content
+            const container = document.getElementById('benefit-content');
+            container.innerHTML = `
+                <div class="mb-8 border-b border-slate-700 pb-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fa-solid ${data.icon} text-2xl ${data.accent}"></i>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white">${data.title}</h3>
+                    </div>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">${data.summary}</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    ${data.points.map((pt, idx) => `
+                        <div class="rounded-2xl bg-slate-900/70 border border-slate-700/80 p-6">
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-tech-600/20 text-tech-400 font-bold text-sm mb-4">0${idx + 1}</span>
+                            <h4 class="text-lg font-bold text-white mb-2">${pt.title}</h4>
+                            <p class="text-sm text-slate-400 leading-relaxed">${pt.desc}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // 4. LOGIKA KUIS MINI INTERAKTIF
+        // ==========================================
+        const quizQuestions = [
+            {
+                question: "Manakah di bawah ini yang termasuk dalam komponen Brainware dalam sistem TIK?",
+                options: [
+                    "Processor Intel Core i7 dan RAM 16GB",
+                    "Sistem Operasi Windows 11 dan Linux",
+                    "Programmer, System Analyst, dan Operator Komputer",
+                    "Router Wi-Fi dan Kabel Fiber Optik"
+                ],
+                correctIndex: 2,
+                explanation: "Brainware adalah unsur manusia yang merancang, mengoperasikan, dan mengelola perangkat keras maupun perangkat lunak."
+            },
+            {
+                question: "Apa fungsi utama dari perangkat lunak Sistem Operasi (Operating System)?",
+                options: [
+                    "Menghubungkan kabel jaringan antar kota",
+                    "Mengelola sumber daya hardware dan menjadi jembatan antara pengguna dengan komputer",
+                    "Mencetak dokumen ke atas kertas secara otomatis",
+                    "Menyimpan daya listrik cadangan saat mati lampu"
+                ],
+                correctIndex: 1,
+                explanation: "Sistem Operasi (seperti Windows, macOS, Android) mengatur seluruh kinerja perangkat keras dan menjalankan aplikasi pengguna."
+            },
+            {
+                question: "Siapakah tokoh yang menemukan World Wide Web (WWW) pada tahun 1989?",
+                options: [
+                    "Alexander Graham Bell",
+                    "Johannes Gutenberg",
+                    "Tim Berners-Lee",
+                    "Samuel Morse"
+                ],
+                correctIndex: 2,
+                explanation: "Sir Tim Berners-Lee menciptakan World Wide Web (WWW) saat bekerja di CERN, yang merevolusi cara informasi diakses melalui internet."
+            },
+            {
+                question: "Pemanfaatan teknologi TIK untuk layanan konsultasi dokter secara jarak jauh disebut...",
+                options: [
+                    "E-Commerce",
+                    "Telemedicine",
+                    "Fintech",
+                    "Cloud Computing"
+                ],
+                correctIndex: 1,
+                explanation: "Telemedicine adalah praktik pelayanan kesehatan jarak jauh menggunakan teknologi informasi dan komunikasi."
+            },
+            {
+                question: "Perangkat keras berikut yang berfungsi khusus sebagai perangkat keluaran (Output Device) adalah...",
+                options: [
+                    "Scanner dan Mikrofon",
+                    "Keyboard dan Mouse",
+                    "Monitor dan Printer",
+                    "SSD dan Flashdisk"
+                ],
+                correctIndex: 2,
+                explanation: "Monitor menampilkan output visual di layar, sedangkan Printer mencetak output dalam bentuk fisik di atas kertas."
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let correctAnswersCount = 0;
+        let hasAnswered = false;
+
+        function loadQuestion() {
+            hasAnswered = false;
+            const currentQ = quizQuestions[currentQuestionIndex];
+
+            // Update header & progress bar
+            document.getElementById('quiz-progress-text').textContent = `Pertanyaan ${currentQuestionIndex + 1} dari ${quizQuestions.length}`;
+            const progressPercent = ((currentQuestionIndex + 1) / quizQuestions.length) * 100;
+            document.getElementById('quiz-progress-bar').style.width = `${progressPercent}%`;
+
+            // Set question text
+            document.getElementById('question-text').textContent = currentQ.question;
+
+            // Render options
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const letters = ['A', 'B', 'C', 'D'];
+            currentQ.options.forEach((optText, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'option-btn w-full text-left p-4 rounded-2xl border-2 border-slate-200 hover:border-tech-500 hover:bg-tech-50/50 transition-all flex items-center gap-3.5 font-medium text-slate-700';
+                btn.innerHTML = `
+                    <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-bold text-sm flex items-center justify-center shrink-0 option-letter">${letters[idx]}</span>
+                    <span class="text-sm sm:text-base">${optText}</span>
+                `;
+                btn.addEventListener('click', () => handleAnswer(idx, btn));
+                optionsContainer.appendChild(btn);
+            });
+
+            // Hide explanation & disable next button
+            const expBox = document.getElementById('explanation-box');
+            expBox.classList.add('hidden');
+
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.disabled = true;
+            nextBtn.className = 'px-6 py-3 rounded-xl font-semibold text-white bg-slate-300 cursor-not-allowed transition-all flex items-center gap-2';
+            nextBtn.querySelector('span').textContent = currentQuestionIndex === quizQuestions.length - 1 ? 'Lihat Hasil Akhir' : 'Pertanyaan Berikutnya';
+        }
+
+        function handleAnswer(selectedIndex, selectedBtn) {
+            if (hasAnswered) return;
+            hasAnswered = true;
+
+            const currentQ = quizQuestions[currentQuestionIndex];
+            const isCorrect = selectedIndex === currentQ.correctIndex;
+            const allOptionBtns = document.querySelectorAll('.option-btn');
+
+            // Disable all options and highlight correct/wrong
+            allOptionBtns.forEach((btn, idx) => {
+                btn.disabled = true;
+                btn.classList.remove('hover:border-tech-500', 'hover:bg-tech-50/50');
+                const letterBadge = btn.querySelector('.option-letter');
+
+                if (idx === currentQ.correctIndex) {
+                    btn.classList.remove('border-slate-200');
+                    btn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+                    letterBadge.classList.remove('bg-slate-100', 'text-slate-700');
+                    letterBadge.classList.add('bg-emerald-500', 'text-white');
+                } else if (idx === selectedIndex && !isCorrect) {
+                    btn.classList.remove('border-slate-200');
+                    btn.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+                    letterBadge.classList.remove('bg-slate-100', 'text-slate-700');
+                    letterBadge.classList.add('bg-rose-500', 'text-white');
+                } else {
+                    btn.classList.add('opacity-60');
+                }
+            });
+
+            // Update score
+            if (isCorrect) {
+                score += 20;
+                correctAnswersCount++;
+                document.getElementById('quiz-live-score').textContent = score;
+            }
+
+            // Show explanation box
+            const expBox = document.getElementById('explanation-box');
+            const expTitle = document.getElementById('explanation-title');
+            const expText = document.getElementById('explanation-text');
+
+            expBox.classList.remove('hidden', 'bg-emerald-50', 'border-emerald-200', 'text-emerald-900', 'bg-rose-50', 'border-rose-200', 'text-rose-900');
+            if (isCorrect) {
+                expBox.classList.add('bg-emerald-50', 'border-emerald-200', 'text-emerald-900');
+                expTitle.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Jawaban Tepat!';
+            } else {
+                expBox.classList.add('bg-rose-50', 'border-rose-200', 'text-rose-900');
+                expTitle.innerHTML = '<i class="fa-solid fa-circle-xmark text-rose-600 mr-1.5"></i> Kurang Tepat!';
+            }
+            expText.textContent = currentQ.explanation;
+
+            // Enable next button
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.disabled = false;
+            nextBtn.className = 'px-6 py-3 rounded-xl font-semibold text-white bg-tech-600 hover:bg-tech-700 shadow-md shadow-tech-600/20 cursor-pointer transition-all flex items-center gap-2';
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-body').classList.add('hidden');
+            const resultScreen = document.getElementById('quiz-result');
+            resultScreen.classList.remove('hidden');
+
+            document.getElementById('final-score').textContent = score;
+            document.getElementById('correct-count-text').textContent = `Kamu menjawab benar ${correctAnswersCount} dari ${quizQuestions.length} soal`;
+
+            const iconWrapper = document.getElementById('result-icon-wrapper');
+            const resultTitle = document.getElementById('result-title');
+            const resultSubtitle = document.getElementById('result-subtitle');
+
+            iconWrapper.className = 'w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl mb-5 shadow-lg';
+
+            if (score >= 80) {
+                iconWrapper.classList.add('bg-emerald-100', 'text-emerald-600');
+                resultTitle.textContent = 'Luar Biasa! Master TIK!';
+                resultSubtitle.textContent = 'Pemahamanmu tentang Teknologi Informasi dan Komunikasi sangat solid.';
+            } else if (score >= 60) {
+                iconWrapper.classList.add('bg-tech-100', 'text-tech-600');
+                resultTitle.textContent = 'Bagus Sekali!';
+                resultSubtitle.textContent = 'Kamu sudah memahami dasar-dasar TIK dengan baik. Terus tingkatkan!';
+            } else {
+                iconWrapper.classList.add('bg-amber-100', 'text-amber-600');
+                resultTitle.textContent = 'Tetap Semangat Belajar!';
+                resultSubtitle.textContent = 'Baca kembali materi di atas lalu coba ulangi kuis untuk meraih skor maksimal.';
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            correctAnswersCount = 0;
+            document.getElementById('quiz-live-score').textContent = '0';
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-body').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        // ==========================================
+        // 5. INISIALISASI HALAMAN SAAT DIMUAT
+        // ==========================================
+        window.addEventListener('DOMContentLoaded', () => {
+            selectComponent('hardware');
+            selectBenefit('pendidikan');
+            loadQuestion();
+        });
+    </script>
+
+</body></html>
